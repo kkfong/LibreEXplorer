@@ -183,6 +183,8 @@ public class FileManagerActivity extends AppCompatActivity {
     public void goBack() {
         if (FileManager.getCurrentDirectory().getParentFile() != null) {
             FileManager.setCurrentDirectory(FileManager.getCurrentDirectory().getParentFile());
+        } else {
+            finish();
         }
     }
 
