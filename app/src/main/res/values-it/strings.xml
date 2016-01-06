@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2015 Elia Zammuto
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">LibreFM</string>
+    <string name="toolbar_menu_new_folder">Nuova Cartella</string>
+    <string name="toolbar_menu_paste">Incolla</string>
+    <string name="new_folder_title">Nuova Cartella…</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Annulla</string>
+    <string name="toolbar_menu_copy">Copia</string>
+    <string name="toolbar_menu_cut">Taglia</string>
+    <string name="toolbar_menu_delete">Rimuovi</string>
+    <string name="paste_dialog_message">Attendi...</string>
+    <string name="paste_dialog_title">Sto Incollando… - Non Chiudere L\'applicazione</string>
+    <string name="title_activity_settings">Impostazioni LibreFM</string>
+    <string name="toolbar_menu_rename">Rinomina</string>
+    <string name="toolbar_menu_details">Dettagli</string>
+    <string name="pref_layout_grid_title">Usa una Griglia per mostrare i File</string>
+    <string name="drawer_close">Chiudi</string>
+    <string name="drawer_open">Apri</string>
+    <string name="menu_item_exit">Esci</string>
+    <string name="menu_item_home">Home</string>
+    <string name="menu_item_parentfolder">Cartella Precedente</string>
+    <string name="menu_item_settings">Impostazioni</string>
+    <string name="pref_show_hidden_files_title">Mostra i File Nascosti</string>
+    <string name="toolbar_menu_share">Condividi</string>
+    <string name="pref_license">Licenza dell\'Applicazione</string>
+    <string name="pref_general_category_title">Impostazioni Generali</string>
+    <string name="pref_misc_category_title">Varie</string>
+    <string name="pref_oss_notice">Licenze Open Source</string>
+    <string name="delete_dialog_items">oggetti</string>
+    <string name="delete_dialog_multiple">Sei sicuro di voler rimuovere questi</string>
+    <string name="delete_dialog_single">Sei sicuro di voler rimuovere questo oggetto?</string>
+</resources>
