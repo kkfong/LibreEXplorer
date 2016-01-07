@@ -45,4 +45,6 @@
     <string name="delete_dialog_items">oggetti</string>
     <string name="delete_dialog_multiple">Sei sicuro di voler rimuovere questi</string>
     <string name="delete_dialog_single">Sei sicuro di voler rimuovere questo oggetto?</string>
+    <string name="pref_icon_size_grid_title">Dimensione Icone in Vista Elenco</string>
+    <string name="pref_icon_size_list_title">Dimensione Icone in Vista Griglia</string>
 </resources>

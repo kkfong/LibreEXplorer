@@ -62,7 +62,7 @@ public class FileManagerActivity extends AppCompatActivity {
         FileUtilties.setContext(this);
         FileManager.setContext(this);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_layout);
-        FileManager.setCurrentDirectory(FileManager.getHomeDirectory());
+
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -73,6 +73,8 @@ public class FileManagerActivity extends AppCompatActivity {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
             }
+        } else {
+            FileManager.setCurrentDirectory(FileManager.getHomeDirectory());
         }
 
     }
@@ -198,9 +200,12 @@ public class FileManagerActivity extends AppCompatActivity {
         }
     }
 
+    //If permission is not given, closes the app, else opens it
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            FileManager.setCurrentDirectory(FileManager.getHomeDirectory());
+        } else {
             finish();
         }
 
