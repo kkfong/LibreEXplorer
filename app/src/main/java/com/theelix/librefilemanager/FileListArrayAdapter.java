@@ -18,6 +18,7 @@ package com.theelix.librefilemanager;
 
 import android.app.Activity;
 import android.content.Context;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,7 @@ public class FileListArrayAdapter extends ArrayAdapter<File> {
     Context mContext;
     int mLayout;
     List<File> files;
+    int iconScale;
 
 
     public FileListArrayAdapter(Context context, int resource, List<File> objects) {
@@ -42,7 +44,11 @@ public class FileListArrayAdapter extends ArrayAdapter<File> {
         mContext = context;
         mLayout = resource;
         files = objects;
-
+        if (resource == R.layout.file_list_element) {
+            iconScale = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(mContext).getString("pref_icon_size_list", "8"));
+        } else if (resource == R.layout.file_grid_element) {
+            iconScale = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(mContext).getString("pref_icon_size_grid", "8"));
+        }
     }
 
     @Override
@@ -57,6 +63,9 @@ public class FileListArrayAdapter extends ArrayAdapter<File> {
             holder = new FileHolder();
             holder.textLabel = (TextView) row.findViewById(R.id.file_list_name);
             holder.icon = (ImageView) row.findViewById(R.id.file_list_icon);
+            holder.icon.getLayoutParams().width = mContext.getResources().getDimensionPixelSize(R.dimen.base_icon_size) * iconScale;
+            holder.icon.getLayoutParams().height = mContext.getResources().getDimensionPixelSize(R.dimen.base_icon_size) * iconScale;
+
 
             row.setTag(holder);
         } else {

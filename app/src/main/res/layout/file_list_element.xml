@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/file_list_icon"
-        android:layout_width="@dimen/iconSize"
-        android:layout_height="@dimen/iconSize"
+        android:layout_width="48dip"
+        android:layout_height="48dip"
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_file_generic" />
 
@@ -31,6 +31,9 @@
         android:id="@+id/file_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:ellipsize="end"
+        android:lines="1"
         android:textSize="32sp" />
 
 </LinearLayout>

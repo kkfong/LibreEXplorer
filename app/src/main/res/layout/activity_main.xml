@@ -48,8 +48,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="32dip"
-                    android:layout_height="32dip"
+                    android:layout_width="48dip"
+                    android:layout_height="48dip"
                     android:src="@drawable/ic_menu_home" />
 
                 <TextView
@@ -77,8 +77,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="32dip"
-                    android:layout_height="32dip"
+                    android:layout_width="48dip"
+                    android:layout_height="48dip"
                     android:src="@drawable/ic_menu_settings" />
 
                 <TextView
@@ -99,8 +99,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="32dip"
-                    android:layout_height="32dip"
+                    android:layout_width="48dip"
+                    android:layout_height="48dip"
                     android:src="@drawable/ic_menu_exit" />
 
                 <TextView

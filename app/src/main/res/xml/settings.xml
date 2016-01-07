@@ -17,9 +17,28 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
   <PreferenceCategory android:title="@string/pref_general_category_title"/>
-  <SwitchPreference android:key="pref_show_hidden_files" android:title="@string/pref_show_hidden_files_title" android:defaultValue="false" />
-  <SwitchPreference android:key="pref_layout_grid" android:title="@string/pref_layout_grid_title" android:defaultValue="false" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="pref_show_hidden_files"
+      android:title="@string/pref_show_hidden_files_title" />
+  <SwitchPreference
+      android:defaultValue="false"
+      android:key="pref_layout_grid"
+      android:title="@string/pref_layout_grid_title" />
+  <EditTextPreference
+      android:key="pref_icon_size_list"
+      android:numeric="integer"
+      android:title="@string/pref_icon_size_list_title" />
+  <EditTextPreference
+      android:key="pref_icon_size_grid"
+      android:numeric="integer"
+      android:title="@string/pref_icon_size_grid_title" />
   <PreferenceCategory android:title="@string/pref_misc_category_title"/>
-  <Preference android:title="@string/pref_license" android:key="pref_license" />
-  <Preference android:title="@string/pref_oss_notice" android:key="pref_oss_notice" />
+  <Preference
+      android:key="pref_license"
+      android:title="@string/pref_license" />
+  <Preference
+      android:key="pref_oss_notice"
+      android:title="@string/pref_oss_notice" />
+
 </PreferenceScreen>
