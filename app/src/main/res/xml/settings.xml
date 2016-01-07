@@ -26,10 +26,14 @@
       android:key="pref_layout_grid"
       android:title="@string/pref_layout_grid_title" />
   <EditTextPreference
+      android:defaultValue="8"
+      android:hint="@string/pref_icon_size_hint"
       android:key="pref_icon_size_list"
       android:numeric="integer"
       android:title="@string/pref_icon_size_list_title" />
   <EditTextPreference
+      android:defaultValue="8"
+      android:hint="@string/pref_icon_size_hint"
       android:key="pref_icon_size_grid"
       android:numeric="integer"
       android:title="@string/pref_icon_size_grid_title" />
