@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -23,42 +23,36 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import com.theelix.librefilemanager.R;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by theelix on 19/12/15.
  */
-public class RenameDialog extends AppCompatDialogFragment {
-    private Object[] selectedFiles;
-
+public class NewFolderDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        final File file = (File) selectedFiles[0];
+        //Creates the Input EditText
         final EditText input = new EditText(getContext());
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         input.setLayoutParams(lp);
-        input.setText(file.getName());
         builder.setView(input);
         //Add OK Button
         builder.setPositiveButton(getString(R.string.dialog_ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String fileName = input.getText().toString();
-                try {
-                    FileManager.rename(file, fileName);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast toast = new Toast(getContext());
-                    toast.setText("IOException D:");
-                    toast.show();
-
+                String folderName = input.getText().toString();
+                File folder = new File(FileManager.getCurrentDirectory() + File.separator + folderName);
+                if (!folder.exists()) {
+                    folder.mkdir();
                 }
+                FileManager.refresh();
+                dismiss();
             }
         });
 
@@ -66,19 +60,8 @@ public class RenameDialog extends AppCompatDialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dismiss();
-
             }
         });
         return builder.create();
-    }
-
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-        FileManager.refresh();
-        super.onDismiss(dialog);
-    }
-
-    public void setSelectedFiles(Object[] selectedFiles) {
-        this.selectedFiles = selectedFiles;
     }
 }

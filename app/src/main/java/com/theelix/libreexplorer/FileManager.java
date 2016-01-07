@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 
 import android.content.Context;
@@ -23,6 +23,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.view.MenuItem;
+
+import com.theelix.librefilemanager.R;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

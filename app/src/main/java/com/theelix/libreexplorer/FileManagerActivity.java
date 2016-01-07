@@ -16,7 +16,7 @@
 /**
  * FibreFM Main Activity's Class, manages the High-Level App functions (Layout,Input and so on...)
  */
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import android.Manifest;
 import android.content.Intent;
@@ -41,6 +41,8 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.theelix.librefilemanager.R;
 
 import java.io.File;
 import java.util.ArrayList;

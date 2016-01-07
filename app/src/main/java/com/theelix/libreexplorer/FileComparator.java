@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import java.io.File;
 import java.util.Comparator;

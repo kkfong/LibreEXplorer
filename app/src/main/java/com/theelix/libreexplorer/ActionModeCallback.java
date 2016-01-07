@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,6 +30,8 @@ import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.theelix.librefilemanager.R;
 
 import java.io.File;
 import java.io.IOException;

@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+
+import com.theelix.librefilemanager.R;
 
 import java.io.IOException;
 

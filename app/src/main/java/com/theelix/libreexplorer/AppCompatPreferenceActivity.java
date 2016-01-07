@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

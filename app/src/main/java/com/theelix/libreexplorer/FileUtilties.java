@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 import android.content.Context;
 import android.net.Uri;
@@ -22,6 +22,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.theelix.librefilemanager.R;
 
 import java.io.File;
 import java.io.IOException;

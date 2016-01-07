@@ -15,7 +15,7 @@
   -->
 
 <resources>
-    <string name="app_name">LibreFM</string>
+    <string name="app_name">LibreEX</string>
     <string name="toolbar_menu_new_folder">Nuova Cartella</string>
     <string name="toolbar_menu_paste">Incolla</string>
     <string name="new_folder_title">Nuova Cartella…</string>

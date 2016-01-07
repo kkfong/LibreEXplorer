@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theelix.librefilemanager;
+package com.theelix.libreexplorer;
 
 
 import android.app.FragmentManager;
@@ -25,6 +25,8 @@ import android.preference.PreferenceScreen;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
+
+import com.theelix.librefilemanager.R;
 
 
 public class SettingsActivity extends AppCompatActivity {
