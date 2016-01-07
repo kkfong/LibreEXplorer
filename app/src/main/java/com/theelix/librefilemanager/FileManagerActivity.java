@@ -18,10 +18,15 @@
  */
 package com.theelix.librefilemanager;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -63,7 +68,12 @@ public class FileManagerActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-
+        //Checks if we're running M or later, then shows the permission dialog
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+            }
+        }
 
     }
 
@@ -186,6 +196,14 @@ public class FileManagerActivity extends AppCompatActivity {
         } else {
             finish();
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+            finish();
+        }
+
     }
 
     /**
