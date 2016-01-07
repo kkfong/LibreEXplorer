@@ -51,6 +51,7 @@ public class FileManagerActivity extends AppCompatActivity {
 
 
     public Menu mMenu;
+    public Boolean isInited = false;
     ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private AbsListView itemView;
@@ -61,22 +62,30 @@ public class FileManagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FileUtilties.setContext(this);
         FileManager.setContext(this);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.main_layout);
+        //Checks if we're running M or later, then shows the permission dialog
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+            } else {
+                init();
+            }
+        } else {
+            init();
+        }
+    }
 
+    /**
+     * this Function is called when Storage permission is garanted
+     */
+    public void init() {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.main_layout);
+        FileManager.setCurrentDirectory(FileManager.getHomeDirectory());
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-        //Checks if we're running M or later, then shows the permission dialog
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
-            }
-        } else {
-            FileManager.setCurrentDirectory(FileManager.getHomeDirectory());
-        }
-
+        isInited = true;
     }
 
     /** This function reads the current Folder, and populates the ListView with the content of that folder */
@@ -185,7 +194,9 @@ public class FileManagerActivity extends AppCompatActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        FileManager.refresh();
+        if (isInited) {
+            FileManager.refresh();
+        }
     }
 
 
@@ -204,7 +215,7 @@ public class FileManagerActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            FileManager.setCurrentDirectory(FileManager.getHomeDirectory());
+            init();
         } else {
             finish();
         }
